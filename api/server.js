@@ -5,11 +5,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
-// Add this before server.use(router)
-server.use(jsonServer.rewriter({
-    '/products/*': '/$1',
-    '/products/:id': '/$1'
-}))
+
 
 server.use(router)
 server.listen(3000, () => {
